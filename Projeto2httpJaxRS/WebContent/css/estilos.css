@@ -1,0 +1,27 @@
+#top-aulas {
+  color: #C5D73E;
+  font-size: 1.7em;
+}
+
+th {
+  background-color: #fdf1cb;
+}
+
+h1 {
+  font-size: 2.4em;
+  color: grey;
+  font-weight: bold;
+}
+
+.div-pesquisa {
+  margin-bottom: 15px;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
+.container {}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="professoresModulo">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="imagens/favicon.png">
+
+    <title>Extrafruti</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/angular.min.js"></script>
+    <script src="controller/professores.js"></script>
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body ng-controller="professoresController">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a id="extrafruti" class="navbar-brand" href="#">Extrafruti</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">Conheça a Empresa</a></li>
+                <li><a href="#contact">Entre em contato</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sistema <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">professors</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Produtos</a></li>
+                    <li><a href="#">Clientes</a></li>
+                    <li><a href="#">Fornecedores</a></li>
+                    <li><a href="#">Funcionários</a></li>    
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+
+      <form>
+         <h1 align="center">Cadastro de Professores</h1>
+         <div class="container">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Código</label>
+              <input  type="text" ng-model="professor.codigo" class="form-control" id="exampleInputEmail1" placeholder="Código">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Nome</label>
+              <input  type="text" ng-model="professor.nome" class="form-control" id="exampleInputPassword1" placeholder="Nome">
+            <br>
+            <div class="form-group">
+              <label for="emaildoprofessor">Email</label>
+              <input  type="text" ng-model="professor.email" class="form-control" id="emaildoprofessor" placeholder="Email">
+            <br>
+            <div class="form-group">
+              <label for="fonedoprofessor">Fone</label>
+              <input  type="text" ng-model="professor.fone" class="form-control" id="fonedoprofessor" placeholder="Fone">
+            <br>    
+            <button ng-click="limparCampos()" type="checkbox" ng-model="novoRegistro" class="btn btn-default">Novo</button>
+            <button ng-click="excluir()" type="submit" ng-disabled="novoRegistro" class="btn btn-danger">Excluir</button>
+            <button ng-click="salvar()" type="submit" class="btn btn-success">Salvar</button>
+            
+          </div>
+          <div class="form-group">
+              <label for="pesquisar">Pesquisar:</label>
+              <input type="text" class="form-control" id="pesquisar" placeholder="Digite aqui a pesquisa" ng-model="Pesquisarprofessor">
+          </div>
+          <br>
+          <table class="table table-striped table-bordered table-hover">
+             <th>Codigo</th>
+             <th>Descrição</th>
+            <tr ng-repeat="professorTabela in professores | filter:Pesquisarprofessor" ng-click="selecionaProfessor(professorTabela)">
+                <td>{{professorTabela.codigo}}</td>
+                <td>{{professorTabela.nome}}</td>
+                <td>{{professorTabela.email}}</td>
+                <td>{{professorTabela.fone}}</td>
+            </tr>
+          </table>  
+        </form>
+        <br>
+        <br> 
+
+      <!-- FOOTER -->
+      <footer class="container">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="js/vendor/holder.min.js"></script>
+    </body>
+</html>
