@@ -2,16 +2,32 @@ package com.rest.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
+@Entity
+@Table(name="professor")
 public class Professor implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-
+	
+	@Id
+	@GeneratedValue( strategy=GenerationType.IDENTITY) //il va générer des codes automatiquement
 	Integer codigo;
+	
+	@Column(name="nome", length=50, nullable=false)
 	String nome;
+	
+	@Column(name="email", length=50, nullable=true)
 	String email;
+	
+	@Column(name="fone", length=15, nullable=false)
 	String fone;
 	
 	

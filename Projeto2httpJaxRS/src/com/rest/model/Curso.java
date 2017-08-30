@@ -2,13 +2,37 @@ package com.rest.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+@Entity
+@Table(name="curso")
 public class Curso implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	
+	@Id
+	@GeneratedValue( strategy=GenerationType.IDENTITY) //il va générer des codes automatiquement
 	private Integer codigo;
+	
+	@Column(name="descricao", length=50, nullable=false)
 	private String descricao;
+	
+	@Column(name="diashorarios", length=50, nullable=false)
 	private String diashorarios;
+	
+	
+	@ManyToOne //ici, nous avons plusieurs cursos qui peut-être lié à un professeur
+	@JoinColumn(name="curs_prof_codigo", referencedColumnName="codigo")
 	private Professor professor;
 
 	public Curso() {
