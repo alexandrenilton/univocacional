@@ -7,12 +7,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 @Entity
 @Table(name="professor")
+@NamedQueries({
+	@NamedQuery(
+		name = "getAllProfessors",
+		query = "select p from Professor p order by p.codigo"
+	)
+})
 public class Professor implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
