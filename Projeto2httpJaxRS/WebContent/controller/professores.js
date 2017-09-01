@@ -6,7 +6,6 @@ professorModulo.controller("professoresController", function($scope, $http) {
 	
 
 	$scope.listarProfessores = function() {
-		console.log("eii");
 		$http.get(urlProfessor).success(function (professores)  {
 			$scope.professores = professores;
 		}).error (function (erro) {
@@ -32,8 +31,9 @@ professorModulo.controller("professoresController", function($scope, $http) {
 			console.log("Um insert novo");
 			
 			$http.post(urlProfessor, $scope.professor).success(function(professor) {
-				$scope.professores.push($scope.professor);
+				//$scope.professores.push($scope.professor);
 				$scope.limparCampos();
+				$scope.listarProfessores();
 			}).error(function (erro) {
 				alert(erro);
 			});
