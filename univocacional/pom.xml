@@ -13,11 +13,8 @@
 			<id>JBOSS_NEXUS</id>
 			<url>http://repository.jboss.org/nexus/content/groups/public</url>
 		</repository>
-		<repository>
-			<id>dragome</id>
-			<name>dragome</name>
-			<url>https://raw.github.com/dragome/dragome/master/maven</url>
-		</repository>
+
+
 		<repository>
 			<id>prime-repo</id>
 			<name>Prime Repo</name>
@@ -28,18 +25,10 @@
 	</repositories>
 
 	<dependencies>
-		<dependency>
-			<groupId>com.dragome</groupId>
-			<artifactId>dragome-sdk</artifactId>
-			<version>0.96-beta2</version>
-			<type>pom</type>
-		</dependency>
-		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-web-api</artifactId>
-			<version>6.0</version>
-			<scope>provided</scope>
-		</dependency>
+		<!-- <dependency> <groupId>com.dragome</groupId> <artifactId>dragome-sdk</artifactId> 
+			<version>0.96-beta2</version> <type>pom</type> </dependency> -->
+		<!-- <dependency> <groupId>javax</groupId> <artifactId>javaee-web-api</artifactId> 
+			<version>6.0</version> <scope>provided</scope> </dependency> -->
 
 		<!-- PrimeFaces -->
 		<dependency>
@@ -83,12 +72,25 @@
 			<artifactId>el-impl</artifactId>
 			<version>2.2</version>
 		</dependency>
-		
+
 		<!-- hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>5.0.2.Final</version>
+		</dependency>
+
+		<!-- WildFly -->
+		<dependency>
+			<groupId>org.wildfly</groupId>
+			<artifactId>wildfly-jsf</artifactId>
+			<version>10.0.0.Final</version>
+		</dependency>
+		<!-- CDI -->
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<version>1.2</version>
 		</dependency>
 
 	</dependencies>

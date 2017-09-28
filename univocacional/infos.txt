@@ -1,0 +1,9 @@
+univocacional/src/main/webapp/WEB-INF/classes
+
+
+https://stackoverflow.com/questions/33034905/how-do-i-inject-a-jmscontext-in-wildfly-10
+https://stackoverflow.com/questions/30213584/inject-field-is-always-null
+
+https://stackoverflow.com/questions/30599495/context-injected-securitycontext-is-null
+
+

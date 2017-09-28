@@ -5,83 +5,69 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="pessoa")
-public class Pessoa {
-	private static final long serialVersionUID = 1L;
-
+@Table(name="descricao_resultado")
+public class DescricaoResultado {
+	
 	@Id
 	@GeneratedValue( strategy=GenerationType.IDENTITY) //il va générer des codes automatiquement
 	private Integer id;
 	
-	@Column(name="nome", length=50, nullable=false)
+	@Column(name="nome", nullable=false)
 	private String nome;
 	
-	@Column(name="telefone", length=15, nullable=true)
-	private String telefone;
+	@Column(name="letra", nullable=false)
+	private String letraMaiorOcorrencia;
 	
-	@Column(name="email", length=70, nullable=false)
+	@Lob
+	@Column(name="descricao", nullable=false)
 	private String email;
 	
-	@OneToOne 
-	private NivelEscolaridade nivelEscolaridade;
-
-	public Pessoa() {
-
+	@Column(name="cursos", nullable=false)
+	private String cursos;
+	
+	
+	public String getLetraMaiorOcorrencia() {
+		return letraMaiorOcorrencia;
 	}
 
-	public NivelEscolaridade getNivelEscolaridade() {
-		return nivelEscolaridade;
-	}
-
-
-	public void setNivelEscolaridade(NivelEscolaridade nivelEscolaridade) {
-		this.nivelEscolaridade = nivelEscolaridade;
+	public void setLetraMaiorOcorrencia(String letraMaiorOcorrencia) {
+		this.letraMaiorOcorrencia = letraMaiorOcorrencia;
 	}
 
 	public Integer getId() {
 		return id;
 	}
 
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
 
 	public String getNome() {
 		return nome;
 	}
 
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-
-	public String getTelefone() {
-		return telefone;
-	}
-
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
 
 	public String getEmail() {
 		return email;
 	}
 
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
+	public String getCursos() {
+		return cursos;
+	}
+
+	public void setCursos(String cursos) {
+		this.cursos = cursos;
+	}
+	
 }
-
-

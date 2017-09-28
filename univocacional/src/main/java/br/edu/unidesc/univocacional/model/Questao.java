@@ -3,12 +3,17 @@ package br.edu.unidesc.univocacional.model;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-public class Questao { 
+@Entity
+@Table(name="questao")
+public class Questao {
+	
 	@Id
 	@GeneratedValue( strategy=GenerationType.IDENTITY) //il va générer des codes automatiquement
 	private Integer id;
@@ -20,7 +25,7 @@ public class Questao {
 	private String enunciado;
 	
 	@OneToMany /*Uma questao para varias alternativas*/
-	private List<AlternativasQuestao> alternativas;
+	private List<AlternativaQuestao> alternativas;
 
 	public Integer getId() {
 		return id;
@@ -46,11 +51,11 @@ public class Questao {
 		this.enunciado = enunciado;
 	}
 
-	public List<AlternativasQuestao> getAlternativas() {
+	public List<AlternativaQuestao> getAlternativas() {
 		return alternativas;
 	}
 
-	public void setAlternativas(List<AlternativasQuestao> alternativas) {
+	public void setAlternativas(List<AlternativaQuestao> alternativas) {
 		this.alternativas = alternativas;
 	}
 	

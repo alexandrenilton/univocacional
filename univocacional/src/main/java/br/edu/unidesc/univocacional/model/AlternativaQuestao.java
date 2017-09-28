@@ -1,14 +1,17 @@
 package br.edu.unidesc.univocacional.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-
-public class AlternativasQuestao {
+@Entity
+@Table(name="alternativa_questao")
+public class AlternativaQuestao {
 
 	@Id
 	@GeneratedValue( strategy=GenerationType.IDENTITY) //il va générer des codes automatiquement
@@ -20,11 +23,11 @@ public class AlternativasQuestao {
 	@Column(name="descricao", nullable=false)
 	private String descricao;
 	
-	@Column(name="peso", nullable=false)
+	@Column(name="peso", nullable=true)
 	private double peso;
 		
 	@ManyToOne /*varias alternativas para uma questao*/
-	@JoinColumn(name="alter_questao_cod", referencedColumnName="id")
+	@JoinColumn(name="questao_id", referencedColumnName="id")
 	private Questao questao;
 
 	public Integer getId() {

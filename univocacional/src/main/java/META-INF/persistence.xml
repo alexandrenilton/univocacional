@@ -5,12 +5,12 @@
 	
 	<persistence-unit name="vocacionalPU">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<jta-data-source>java:jboss/datasources/VocacionalDS</jta-data-source>
+		<jta-data-source>java:jboss/datasources/UnivocacionalDS</jta-data-source>
 		
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
 			<property name="hibernate.show_sql" value="true"/>
-			<property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
 		</properties>
 	
 	</persistence-unit>
