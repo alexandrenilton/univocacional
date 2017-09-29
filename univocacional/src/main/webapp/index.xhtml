@@ -1,9 +1,8 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core" 
-	xmlns:ui="http://java.sun.com/jsf/facelets" 
-	xmlns:p="http://primefaces.org/ui"  
-  template="default.xhtml">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="default.xhtml">
 
 
 	<ui:define name="conteudo">
@@ -14,59 +13,74 @@
 				<div class="container-wrap">
 					<div class="content-sidebar-wrap">
 						<div id="content">
-							
-							
-							
-							<p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid" styleClass="ui-panelgrid-blank">
-									<p:graphicImage value="img/feira-slide-versao-2.png" styleClass="imagem-logo"/>
-									<div>
-										<h1 class="page-title">Teste Vocacional</h1>
-										<p>Este é um Teste Vocacional online e gratuito. Escolha
-											apenas uma das alternativas (aquela com a qual você mais se
-											identifica) dentre as seis oferecidas. O resultado lhe
-											apresentará algumas informações sobre sua autopercepção no
-											momento e poderá auxiliar na escolha de uma carreira
-											profissional. No entanto, este teste não substitui a avaliação
-											e orientação vocacional a ser feita por um profissional
-											competente.</p>
-									</div>
+
+
+
+							<p:panelGrid columns="2"
+								columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid"
+								styleClass="ui-panelgrid-blank">
+								<p:graphicImage value="img/feira-slide-versao-2.png"
+									styleClass="imagem-logo" />
+								<div>
+									<h1 class="page-title">Teste Vocacional</h1>
+									<p>Este é um Teste Vocacional online e gratuito. Escolha
+										apenas uma das alternativas (aquela com a qual você mais se
+										identifica) dentre as seis oferecidas. O resultado lhe
+										apresentará algumas informações sobre sua autopercepção no
+										momento e poderá auxiliar na escolha de uma carreira
+										profissional. No entanto, este teste não substitui a avaliação
+										e orientação vocacional a ser feita por um profissional
+										competente.</p>
+								</div>
 							</p:panelGrid>
-							
-							
+
+
 							<h:form>
-							<p:growl id="growl" life="2000" />
-							<p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-10"  styleClass="ui-panelgrid-blank" layout="grid">
+								<p:growl id="growl" life="2000" />
+								<p:panelGrid columns="2"
+									columnClasses="ui-grid-col-2,ui-grid-col-10"
+									styleClass="ui-panelgrid-blank" layout="grid">
 									<p:outputLabel></p:outputLabel>
-									
-									<p:panelGrid columns="1" layout="grid" styleClass="ui-panelgrid-blank form-group" style="margin-top: 10px">	
-										
-										<p:outputLabel for="nome" value="Nome Completo:"/>
-										<p:inputText id="nome" maxlength="100" size="70" class="dados-pessoais form-text" value="#{testeBean.pessoa.nome}"></p:inputText>
-										
-										<p:outputLabel for="telefone" value="Telefone para contato:"/>
-										<p:inputText id="telefone" maxlength="20" size="20" class="dados-pessoais form-text" value="#{testeBean.pessoa.telefone}"></p:inputText>
-										
-										<p:outputLabel for="email" value="E-mail:"/>
-										<p:inputText id="email" maxlength="100" size="70" class="dados-pessoais form-text" value="#{testeBean.pessoa.email}"></p:inputText>
-										
-										<p:outputLabel for="nivel" value="Nível de Escolaridade: "/>
-										<p:selectOneMenu id="nivel" value="#{testeBean.pessoa.nivelEscolaridade}">
-					            <f:selectItem itemLabel="Selecione" itemValue="" />
-            					<f:selectItems value="#{testeBean.niveis}" var="level" itemLabel="#{level.nome}" itemValue="#{level.id}"/>
-            				</p:selectOneMenu>
-					        	
-					        	<br/>
-					          <p:commandButton value="Iniciar Teste" id="ajax" update="growl" 
-					              actionListener="#{testeBean.iniciar}" styleClass="ui-priority-primary" />
-					        	
+
+									<p:panelGrid columns="1" layout="grid"
+										styleClass="ui-panelgrid-blank form-group"
+										style="margin-top: 10px">
+
+										<p:outputLabel for="nome" value="Nome Completo:" />
+										<p:inputText id="nome" maxlength="100" size="70"
+											class="dados-pessoais form-text"
+											value="#{testeBean.pessoa.nome}"></p:inputText>
+
+										<p:outputLabel for="telefone" value="Telefone para contato:" />
+										<p:inputText id="telefone" maxlength="20" size="20"
+											class="dados-pessoais form-text"
+											value="#{testeBean.pessoa.telefone}"></p:inputText>
+
+										<p:outputLabel for="email" value="E-mail:" />
+										<p:inputText id="email" maxlength="100" size="70"
+											class="dados-pessoais form-text"
+											value="#{testeBean.pessoa.email}"></p:inputText>
+
+										<p:outputLabel for="nivel" value="Nível de Escolaridade: " />
+										<p:selectOneMenu id="nivel" converter="#{nivelEscolaridadeConverter}"
+											value="#{testeBean.pessoa.nivelEscolaridade}">
+											<f:selectItem itemLabel="Selecione" itemValue="" />
+											<f:selectItems value="#{testeBean.niveis}" var="level" itemLabel="#{level.nome}" itemValue="#{level}" />
+										</p:selectOneMenu>
+
+										<br />
+										<p:commandButton value="Iniciar Teste" id="ajax"
+											update="growl" actionListener="#{testeBean.iniciar}"
+											styleClass="ui-priority-primary" />
+
 									</p:panelGrid>
-									
-							</p:panelGrid>
+
+								</p:panelGrid>
 							</h:form>
-							
-							
-							
-							
+
+
+
+
 						</div>
 					</div>
 				</div>

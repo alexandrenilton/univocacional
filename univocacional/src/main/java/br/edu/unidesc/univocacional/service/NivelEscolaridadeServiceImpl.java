@@ -9,7 +9,6 @@ import javax.transaction.Transactional;
 import br.edu.unidesc.univocacional.dao.NivelEscolaridadeDaoInterface;
 import br.edu.unidesc.univocacional.model.NivelEscolaridade;
 
-@RequestScoped
 public class NivelEscolaridadeServiceImpl implements NivelEscolaridadeServiceInterface{
 	
 	@Inject
@@ -33,7 +32,7 @@ public class NivelEscolaridadeServiceImpl implements NivelEscolaridadeServiceInt
 
 	@Override
 	public List<NivelEscolaridade> getAll() {
-		return nivelEscolaridadeDaoInterface.getAllNiveis();
+		return nivelEscolaridadeDaoInterface.getAll();
 	}
 
 	@Override

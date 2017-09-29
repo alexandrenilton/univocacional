@@ -36,7 +36,7 @@ public class PessoaServiceImpl implements PessoaServiceInterface{
 		return null;
 	}
 
-	@Override
+	@Transactional
 	public List<NivelEscolaridade> getAllNiveis() {
 		return pessoaDaoInterface.getAllNiveis();
 	}

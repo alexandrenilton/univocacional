@@ -25,11 +25,9 @@ public class TesteBean {
 	@Inject
 	private PessoaFacade pessoaFacade;
 	
-	@Inject
-	private NivelEscolaridadeFacade nivelEscolaridadeFacade;
-
 	public TesteBean() {
 		pessoa = new Pessoa();
+		
 	}
 
 	public Pessoa getPessoa() {
@@ -46,10 +44,9 @@ public class TesteBean {
 		this.pessoa = pessoa;
 	}
 	
-	//Inicia qd criar, antes de tudo
 	@PostConstruct
 	public void init(){
-		niveis = nivelEscolaridadeFacade.getAll();
+		niveis = pessoaFacade.getAllNiveis();		
 	}
 
 	public List<NivelEscolaridade> getNiveis() {

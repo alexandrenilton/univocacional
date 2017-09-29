@@ -9,7 +9,6 @@ public interface NivelEscolaridadeDaoInterface {
 	public NivelEscolaridade save(NivelEscolaridade nivelEscolaridade);
 	public void update(NivelEscolaridade nivelEscolaridade);
 	public void delete(NivelEscolaridade nivelEscolaridade) ;
-	public List<Pessoa> getAll() ;
-	public List<NivelEscolaridade> getAllNiveis();
+	public List<NivelEscolaridade> getAll() ;
 	public NivelEscolaridade findById(Integer id);
 }

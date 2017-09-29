@@ -38,7 +38,6 @@ public class Pessoa {
 		return nivelEscolaridade;
 	}
 
-
 	public void setNivelEscolaridade(NivelEscolaridade nivelEscolaridade) {
 		this.nivelEscolaridade = nivelEscolaridade;
 	}
