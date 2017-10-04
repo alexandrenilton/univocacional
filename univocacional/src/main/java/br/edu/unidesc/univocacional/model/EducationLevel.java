@@ -14,24 +14,24 @@ import javax.persistence.Table;
 
 @NamedQueries({
 	@NamedQuery(
-		name = "getAllNiveis",
-		query = "select ne from NivelEscolaridade ne order by ne.nome"
+		name = "getAllLevels",
+		query = "select e from EducationLevel e order by e.name"
 	), 
 	@NamedQuery(
 	    name = "findById",
-	    query = "select ne from NivelEscolaridade ne where ne.id = :id"
-	) 
+	    query = "select e from EducationLevel e where e.id = :id"
+	)
 })
 @Entity
-@Table(name="nivel_escolaridade")
-public class NivelEscolaridade implements Serializable{
+@Table(name="education_level")
+public class EducationLevel implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue( strategy=GenerationType.IDENTITY) //il va générer des codes automatiquement
 	private Integer id;
 	
 	@Column(name="nome", length=50, nullable=false)
-	private String nome;
+	private String name;
 	
 	
 	@Override
@@ -40,6 +40,12 @@ public class NivelEscolaridade implements Serializable{
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         return result;
+    }
+	
+	@Override
+    public boolean equals(Object object) {
+        return (object instanceof EducationLevel) && 
+        		(id != null) ? id.equals(((EducationLevel) object).id) : (object == this);
     }
 	
 	/**getters and setters**/
@@ -52,15 +58,13 @@ public class NivelEscolaridade implements Serializable{
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
-	
-	
 }
 
 

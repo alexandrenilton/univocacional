@@ -49,30 +49,30 @@
 										<p:outputLabel for="nome" value="Nome Completo:" />
 										<p:inputText id="nome" maxlength="100" size="70"
 											class="dados-pessoais form-text"
-											value="#{testeBean.pessoa.nome}"></p:inputText>
+											value="#{testeBean.person.name}"></p:inputText>
 
 										<p:outputLabel for="telefone" value="Telefone para contato:" />
 										<p:inputText id="telefone" maxlength="20" size="20"
 											class="dados-pessoais form-text"
-											value="#{testeBean.pessoa.telefone}"></p:inputText>
+											value="#{testeBean.person.phone}"></p:inputText>
 
 										<p:outputLabel for="email" value="E-mail:" />
 										<p:inputText id="email" maxlength="100" size="70"
 											class="dados-pessoais form-text"
-											value="#{testeBean.pessoa.email}"></p:inputText>
+											value="#{testeBean.person.email}"></p:inputText>
 
 										<p:outputLabel for="nivel" value="Nível de Escolaridade: " />
-										<p:selectOneMenu id="nivel" converter="#{nivelEscolaridadeConverter}"
-											value="#{testeBean.pessoa.nivelEscolaridade}">
+										<p:selectOneMenu id="nivel" converter="#{educationLevelConverter}"
+											value="#{testeBean.person.educationLevel}">
 											<f:selectItem itemLabel="Selecione" itemValue="" />
-											<f:selectItems value="#{testeBean.niveis}" var="level" itemLabel="#{level.nome}" itemValue="#{level}" />
+											<f:selectItems value="#{testeBean.educationLevels}" var="level" itemLabel="#{level.name}" itemValue="#{level}" />
 										</p:selectOneMenu>
 
 										<br />
 										<p:commandButton value="Iniciar Teste" id="ajax"
-											update="growl" actionListener="#{testeBean.iniciar}"
+											update="growl" action="#{testeBean.iniciar}"
 											styleClass="ui-priority-primary" />
-
+										
 									</p:panelGrid>
 
 								</p:panelGrid>

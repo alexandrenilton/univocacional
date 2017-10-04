@@ -10,77 +10,69 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="pessoa")
-public class Pessoa {
+@Table(name="person")
+public class Person {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue( strategy=GenerationType.IDENTITY) //il va générer des codes automatiquement
 	private Integer id;
 	
-	@Column(name="nome", length=50, nullable=false)
-	private String nome;
+	@Column(name="name", length=50, nullable=false)
+	private String name;
 	
-	@Column(name="telefone", length=15, nullable=true)
-	private String telefone;
+	@Column(name="phone", length=15, nullable=true)
+	private String phone;
 	
 	@Column(name="email", length=70, nullable=false)
 	private String email;
 	
 	@OneToOne 
-	private NivelEscolaridade nivelEscolaridade;
+	private EducationLevel educationLevel;
 
-	public Pessoa() {
-
+	public EducationLevel getEducationLevel() {
+		return educationLevel;
 	}
 
-	public NivelEscolaridade getNivelEscolaridade() {
-		return nivelEscolaridade;
-	}
-
-	public void setNivelEscolaridade(NivelEscolaridade nivelEscolaridade) {
-		this.nivelEscolaridade = nivelEscolaridade;
+	public void setNivelEscolaridade(EducationLevel educationLevel) {
+		this.educationLevel = educationLevel;
 	}
 
 	public Integer getId() {
 		return id;
 	}
 
-
-	public void setId(Integer id) {
-		this.id = id;
+	public String getName() {
+		return name;
 	}
 
-
-	public String getNome() {
-		return nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-
-	public void setNome(String nome) {
-		this.nome = nome;
+	public String getPhone() {
+		return phone;
 	}
 
-
-	public String getTelefone() {
-		return telefone;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
-
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
 
 	public String getEmail() {
 		return email;
 	}
 
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setEducationLevel(EducationLevel educationLevel) {
+		this.educationLevel = educationLevel;
+	}
 }
 
 

@@ -1,0 +1,60 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="default.xhtml">
+
+
+	<ui:define name="conteudo">
+
+		<div id="page-wrap">
+
+			<div id="container">
+				<div class="container-wrap">
+					<div class="content-sidebar-wrap">
+						<div id="content">
+
+							<h:form>
+							
+							<p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid"
+								styleClass="ui-panelgrid-blank">
+								<p:graphicImage value="img/feira-slide-versao-2.png" styleClass="imagem-logo" />
+								
+								<h2 class="page-title">Responda as Questões</h2>
+									 
+								  
+								<!--   		
+								 < p : wizard flowListener=" # { testeWizardBean.onFlowProcess}">
+								</ p : wizard>
+								 -->
+							</p:panelGrid>
+							<p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid"
+								styleClass="ui-panelgrid-blank">
+							 	<div></div>
+							 	<p:repeat value="#{testeWizardBean.questions}" var="question">	
+										 <p:tab title="#{question.id}">
+											 <div>
+												<h3><strong>#{question.id}</strong> - #{question.title}</h3>
+											</div>
+											<p:repeat value="#{question.alternatives}" var="alt">
+												<p><strong>#{alt.letter}</strong> - #{alt.description}</p>
+											</p:repeat>
+										</p:tab>
+									</p:repeat>
+							</p:panelGrid>
+							
+							</h:form>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div id="footer_wrapper" class="footer_block bottom_widget"></div>
+
+
+		</div>
+
+	</ui:define>
+</ui:composition>
