@@ -52,6 +52,16 @@ public class Question {
 		this.alternatives = alternatives;
 	}
 	
+	/** Testar isso **/
+	public void addToQuestion(List<AlternativeQuestion> alternatives) {
+		if (alternatives != null ) {
+			for (AlternativeQuestion alternativeQuestion : alternatives) {
+				alternativeQuestion.setQuestion(this);
+				this.alternatives.addAll(alternatives);
+			}
+		}
+	}
+	
 	public Integer getId() {
 		return id;
 	}

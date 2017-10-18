@@ -41,10 +41,13 @@ public class QuestionBean implements Serializable{
 		AlternativeQuestion aqE = new AlternativeQuestion('e', "Alternativa E");
 		AlternativeQuestion aqF = new AlternativeQuestion('f', "Alternativa F");
 		
-		List<AlternativeQuestion> altes = new LinkedList<AlternativeQuestion>();
-		altes.add(aqA); altes.add(aqB); altes.add(aqC);altes.add(aqF);altes.add(aqE);altes.add(aqF);
+		Question q = new Question(1, "Enunciado de teste", null);
 		
-		Question q = new Question(1, "Enunciado de teste", altes);
+		List<AlternativeQuestion> altes = new LinkedList<AlternativeQuestion>();
+		altes.add(aqA);  altes.add(aqB); altes.add(aqC); altes.add(aqD); altes.add(aqE); altes.add(aqF);
+		
+		//faz link bi-directional
+		q.addToQuestion(altes);
 		
 		Question temp = questionFacade.save(q);
 		
